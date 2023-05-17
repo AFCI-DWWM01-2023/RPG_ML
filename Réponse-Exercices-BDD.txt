@@ -1,0 +1,145 @@
+_____________________________________________
+*********************************************|
+*********************************************|
+							   |
+LES BASES DES REQUÊTES DE SÉLECTION : 1er PDF|
+							   |
+*********************************************|
+*********************************************|
+_____________________________________________|
+
+********************
+SELECT / FROM / AS :
+
+********************
+
+1 - select * from personnage;
+
+2 - select * from arme;
+
+3 - select nom, levelMin from arme;
+
+4 - select nom, surnom, LEVEL from personnage;
+
+5 - select nom as Pseudo, LEVEL as Niveau from personnage;
+
+6 - select libelle as Types_armes_du_jeu from typearme;
+
+
+****************************************************
+
+LES CALCULS, FONCTION COUNT / SUM /AVG / MIN / MAX :
+
+****************************************************
+
+1 - select count(idArme) as Nombre_D_armes from arme;
+
+2 - select count(idPersonnage) as Nombre_De_Personnage from personnage;
+
+3 - select avg(level) as Moyenne_de_niveau from personnage;
+
+4 - select sum(baseForce) as Points_de_force, sum(baseAgi) as Points_Agilité, sum(baseIntel) as Points_Intel_du_jeu from classe;
+
+5 - select min(levelMin), max(levelMin) from arme;
+
+6 - select nom, sum(baseForce + baseAgi + baseIntel) as NB_points_de_caractéristique from classe group by nom;
+
+
+*************************************************************************
+LES FONCTIONS SUR LES CHAÎNES DE CARACTÈRES : CONCAT / SUBSTRING / LEFT :
+
+*************************************************************************
+
+1 - select concat(nom, surnom) as Personnage from personnage;
+
+2 - 
+
+3 - select substring(nom,1,6) from personnage;
+  - select substr(nom,1,6) from personnage;
+
+4 - select concat(left(nom,5),'-',left(description,20)) as Classe from classe;
+
+
+********************************************
+FILTRER LES DONNÉES AVEC LE MOT CLEF WHERE :
+
+********************************************
+
+1 - select * from arme where levelMin >5 ;
+
+2 - select * from arme where degat < 25;
+
+3 - select nom, surnom from personnage where level =10;
+
+4 - select * from typearme where estDistance = 1;
+
+
+***********************************
+LES OPÉRATEURS AND / OR / BETWEEN :
+
+***********************************
+
+1 - select * from arme where levelMin >=4 and levelMin <=8;
+
+2 - select * from personnage where idPersonnage <=3 and level =10;
+
+3 - select nom,levelMin from arme where levelMin <4 or levelMin >=8;
+
+4 - Pour strictement supérieur à 30 :
+    select * from arme where idArme in(1,2) or degat >30;
+
+  - Pour supérieur ou égal à 30 :
+    select * from arme where idArme in(1,2) or degat >= 30;
+
+5 - select * from arme where idArme = 1 or idArme =2 or (degat between '25' and '40');
+
+6 - select * from personnage where level <>8 and (level <6 or level >7);
+
+7 - Je ne peux pas mettre <10 sinon il y a une erreur.
+    select count(level) as NB_Perso from personnage where level <10;
+
+8 - select avg(degat) as Moyenne_Dégat from arme where levelMin between '3' and '7';
+
+
+************************************
+LIKE / IN LIMIT / OFFSET / IS NULL :
+
+************************************
+
+1 - select * from personnage where nom like 'L%';
+
+2 - select * from personnage where nom like 'L%' and nom like '%er';
+
+3 - select * from arme where nom like '%bois%';
+
+4 - select * from arme where nom like 'a_b%';
+
+5 - select * from arme where idArme =1 or idArme =2 or idArme =4 or idArme=5 or idArme=7;
+
+6 - select * from personnage where idPersonnage in(2,3,4,6) and level=10;
+
+7 - select * from personnage where surnom IS NOT NULL;
+
+8 - select * from personnage where surnom IS NULL;
+
+9 - select * from personnage limit 3;
+
+10 - select * from personnage limit 2 offset 3;
+
+
+__________________________________________________________________
+******************************************************************|
+******************************************************************|
+							                        |
+LES JOINTURES : RÉCUPÉRER DES DONNÉES À PARTIR DE PLUSIEURS TABLES|
+							                        |
+******************************************************************|
+******************************************************************|
+__________________________________________________________________|
+
+************************
+LES JOINTURES INTERNES :
+
+************************
+
+1 - 
