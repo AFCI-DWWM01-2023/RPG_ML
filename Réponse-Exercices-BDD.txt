@@ -142,4 +142,73 @@ LES JOINTURES INTERNES :
 
 ************************
 
+1 - select * from personnage innner join arme on idPersonnage = idArme;
+
+2 -** select nom, levelMin, libelle, estDistance from arme inner join typearme on idArme=idTypeArme;
+  -*** select nom, levelMin, libelle, estDistance from arme, typearme;
+
+  ** Je ne comprends pas pourquoi il me met : ERROR 1052 (23000): Champ: 'idTypeArme' dans on clause est ambigu ** alors que je lui inque où le trouver ..
+  *** Il me le retourne 6 fois de chaque je ne comprends pas pourquoi.
+
+************************************
+LES JOINTURES ET SURNOMS DE TABLES :
+
+************************************
+
+1 - select nom, nom from personnage cross join classe;
+   **ERROR 1052 (23000): Champ: 'nom' dans field list est ambigu
+
+2 - 
+
+3 - 
+
+
+**********************
+JOINTURES ET FILTRES :
+
+**********************
+
+1 -
+
+2 - 
+
+3 - 
+
+****************************
+JOINTURES, CALCULS ET TRIS :
+
+****************************
+
 1 - 
+
+2 - 
+
+3 - 
+
+4 - 
+
+************************
+LES JOINTURES EXTERNES :
+
+************************
+
+1 - 
+
+2 - 
+
+3 - 
+
+4 - 
+
+
+
+___________________________
+***************************|
+***************************|
+		               |
+LES GROUPEMENTS : 3 ème PDF|
+				   |
+***************************|
+***************************|
+___________________________|
+
