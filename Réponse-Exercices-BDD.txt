@@ -155,9 +155,7 @@ LES JOINTURES ET SURNOMS DE TABLES :
 
 2 - select personnage.nom, arme.nom, arme.levelMin, arme.degat from personnage inner join arme on personnage.idArmeUtilise= arme.idArme;
 
-3 - select personnage.nom, arme.nom, arme.levelMin, arme.degat, typearme.libelle as Type_Arme, typearme.estDistance from personnage inner join arme on personnage.idArmeUtilise= arme.idArme join typearme on personnage.idPersonnage=typearme.idTypeArme;
-
-Le type d'arme ne se lie pas bien, faut-il utiliser la table dispose ?
+3 - select personnage.nom, arme.nom, arme.levelMin, arme.degat, typearme.libelle as Type_Arme, typearme.estDistance from personnage join arme on personnage.idArmeUtilise= arme.idArme join typearme on personnage.idPersonnage=typearme.idTypeArme join dispose on dispose.idPersonnage=dispose.idArme ;
 
 
 **********************
@@ -215,4 +213,6 @@ REGROUPEMENT ET GROUP BY :
 
 **************************
 
-1 - 
+1 - select typearme.libelle as Type_Arme, count(arme.nom) as NB_Arme from typearme inner join arme on typearme.idTypeArme=arme.idTypeArme group by typearme.libelle order by typearme.idTypeArme;
+
+2 - select classe.nom as Classe, classe.description, count(personnage.nom) as NB_Personnage from classe inner join personnage on classe.idClasse=personnage.idClasse group by classe.nom;
