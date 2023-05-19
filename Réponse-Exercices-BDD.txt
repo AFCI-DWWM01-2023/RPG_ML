@@ -144,20 +144,20 @@ LES JOINTURES INTERNES :
 
 1 - select * from personnage innner join arme on idPersonnage = idArme;
 
-2 - select nom, levelMin, libelle, estDistance from arme, typearme;
-    Il me le retourne 6 fois de chaque je ne comprends pas pourquoi.
+2 - select nom, levelMin, libelle, estDistance from arme inner join typearme on       arme.idTypeArme=typearme.idTypeArme;
 
 ************************************
 LES JOINTURES ET SURNOMS DE TABLES :
 
 ************************************
 
-1 - select personnage.nom, classe.nom from personnage,classe;
-    Il me retourne plusieurs fois les noms pour les différentes classes.
+1 -  select personnage.nom, classe.nom from personnage inner join classe on personnage.idClasse =classe.idClasse;
 
-2 - 
+2 - select personnage.nom, arme.nom, arme.levelMin, arme.degat from personnage inner join arme on personnage.idArmeUtilise= arme.idArme;
 
-3 - 
+3 - select personnage.nom, arme.nom, arme.levelMin, arme.degat, typearme.libelle as Type_Arme, typearme.estDistance from personnage inner join arme on personnage.idArmeUtilise= arme.idArme join typearme on personnage.idPersonnage=typearme.idTypeArme;
+
+Le type d'arme ne se lie pas bien, faut-il utiliser la table dispose ?
 
 
 **********************
